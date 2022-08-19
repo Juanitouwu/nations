@@ -1,0 +1,16 @@
+Ejercicio 3
+-Seleccione nombre, national_day, de los países independizados en el siglo XVII
+Country::wherebetween('national_day',['1600-01-01','1699-12-31'])->
+... select('name','national_day')->
+... get()
+-Seleccione name,national_day, area  de los paises de la Region “British Islands” que no tienen Fecha de Independencia(National Day)
+Region::find(24)->
+... paises()->
+... select('name','area','national_day')->
+... wherenull('national_day')->
+... get()
+-Seleccione los idiomas no oficiales de China
+country::find(42)->
+... idiomas()->
+... where('official','='.'0')->
+... get()
